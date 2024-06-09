@@ -34,5 +34,8 @@ document.addEventListener('DOMContentLoaded',function(){
             elementFollowing.innerText = 'Error';
             elementResp.innerText = 'Error';
             elementLink.href = '#';
+        })
+        .finally(function () {
+            console.log('Fetch GitHub data completed.');
         });
     })
