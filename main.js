@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',function(){
         const elementLink=document.querySelector('#link');
 
 
-        fetch('https://api.github.com/users/WilfredoSolorzan0000')
+        fetch('https://api.github.com/users/WilfredoSolorzano')
          .then(function (res) {
             if (!res.ok) {
                 throw new Error('Network response was not ok ' + res.statusText);
