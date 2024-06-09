@@ -8,8 +8,11 @@ document.addEventListener('DOMContentLoaded',function(){
         const elementLink=document.querySelector('#link');
 
 
-        fetch('https://api.github.com/users/WilfredoSolorzano')
-        .then(function(res){
+        fetch('https://api.github.com/users/WilfredoSolorzan0000')
+         .then(function (res) {
+            if (!res.ok) {
+                throw new Error('Network response was not ok ' + res.statusText);
+            }
             return res.json();
         })
         .then(function(json){
@@ -21,4 +24,15 @@ document.addEventListener('DOMContentLoaded',function(){
             elementResp.innerText=json.public_repos;
             elementLink.href=json.html_url;
         })
+        .catch(function (error) {
+            alert('Ocurreu um erro ao buscar os dados do GitHub, tente novamente mais tarde.');
+            console.error('Fetch error: ', error);
+            elementName.innerText = 'Error loading name';
+            elementUsername.innerText = 'Error loading username';
+            elementAvatar.src = 'https://via.placeholder.com/180x180';
+            elementFollowers.innerText = 'Error';
+            elementFollowing.innerText = 'Error';
+            elementResp.innerText = 'Error';
+            elementLink.href = '#';
+        });
     })
